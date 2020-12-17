@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Halal Map</title>
+    <meta name = "viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
+    <div class="nav">
+      <div id="title">
+        <a href="./index.html">
+          <div class="title">     
+            <img class="img-container" src="images/symbol.svg"/>
+            <h3>NYC Halal Foods</h3>
+          </div>
+        </a>
+      </div>
+      <div class="drop-down">
+        <a href="./index.html">Home</a>
+        <hr>
+        <a href="./faq.html">FAQ</a>
+        <hr>
+        <a href="contact.html">Contact</a>
+        <hr>
+        <a href="quiz.html">Quiz</a>
+      </div>
+    </div>
+    <div class="quiz-page">
+      <form  id="quiz">
+        <p>Does the restaurant serve any alcoholic drinks and/or intoxicants? This includes adding any to food.</p>
+        <input type="radio" id="drink1" name="drinks" value="2" />
+        <label for="drink1" class="option">Yes</label>
+        <input type="radio" id="drink2" name="drinks" value="1" />
+        <label for="drink2" class="option">No</label>
+
+        <p>Is the meat served all halal certified?</p>
+        <input type="radio" id="meat1" name="meat" value="1" />
+        <label for="meat1" class="option">Yes, all</label>
+        <input type="radio"id="meat2" name="meat" value="2" />
+        <label for="meat2" class="option">No, only some/none of them are</label>
+
+        <p>Is pork, bacon or ham on the menu?</p>
+        <input type="radio" id="pork1" name="pork" value="2" />
+        <label for="pork1" class="option">Yes</label>
+        <input type="radio" id="pork2" name="pork" value="1" />
+        <label for="pork2" class="option">No</label>
+
+        <br/>
+        <button id="submit" type="submit" value="Submit">Submit</button>
+
+      </form>
+
+      <p id="answer"></p>
+      <p id="answer2"></p>
+    </div>
+    <script>
+      document.getElementById("quiz").onsubmit=function() {
+        
+        //check/validates if choice
+        drinks = parseInt(document.querySelector('input[name = "drinks"]:checked').value);  
+        meat = parseInt(document.querySelector('input[name = "meat"]:checked').value);
+        
+        pork = parseInt(document.querySelector('input[name = "pork"]:checked').value);
+        
+        total= drinks + meat + pork;
+        
+      
+
+      if(total < 4) {
+        document.getElementById("quiz").innerHTML = "Halal!";	  
+        // document.getElementById("answer").innerHTML = "Halal!";	   
+        document.getElementById("answer").innerHTML = "Awesome! Looks like this place fulfills our minimal standards for being a halal restaurant. Send us a message through <a href=\"./contact.html\">contacts</a> and we'll check it out.";
+      }
+
+        if(total >= 4) {
+          document.getElementById("quiz").innerHTML = "Not Halal.";  
+          // document.getElementById("answer").innerHTML = "Not Halal.";	  
+          document.getElementById("answer").innerHTML = "Sorry, this place does not sound to like it's halal or simply doesn't live up to our basic requirements. <strong> We do not wish you contact us</strong>, unless the requirements for being halal are settled.";
+        }   
+          
+        return false; 
+      }
+    </script>
+
+  </body>
+</html>
+	

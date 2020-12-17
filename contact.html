@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Halal Map</title>
+    <meta name = "viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="array.js"></script>
+  </head>
+  <body>
+    <div class="nav">
+      <div id="title">
+        <a href="./index.html">
+          <div class="title">     
+            <img class="img-container" src="images/symbol.svg"/>
+            <h3>NYC Halal Foods</h3>
+          </div>
+        </a>
+      </div>
+      <div class="drop-down">
+        <a href="./index.html">Home</a>
+        <hr>
+        <a href="./faq.html">FAQ</a>
+        <hr>
+        <a href="contact.html">Contact</a>
+        <hr>
+        <a href="quiz.html">Quiz</a>
+      </div>
+    </div>
+    <div class="contact-page">
+      <div class="contact-container">
+        <form id="my-form"
+          action="https://formspree.io/f/xrgoyqyq"
+          method="POST"
+        >
+        <div class="user-info">
+          <div>
+            <input type="name" name="name" placeholder="Full Name" required/>
+          </div>
+          <div>
+            <input type="email" name="email" placeholder="Email Address" required/>
+          </div>
+        </div>
+        <div class="message-container">
+          <div>
+            <input type="subject" name="subject" placeholder="Subject" required/>
+          </div>
+          <textarea type="text" name="message" placeholder="Message" required></textarea>
+          <button id="submit">Submit</button>
+        </div>
+          <p id="my-form-status"></p>
+        </form>
+      </div>
+
+      <div class="image-container">
+
+        <img id="food-img" src="./images/mansaf.jpg">
+        <div class="selection">
+          <button class="button" onclick="Back()">&#8592;</button>
+          <button class="button" onclick="Next()">&#8594;</button>
+        </div>
+      </div>
+  </div>
+  </body>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", function() {
+
+      // get the form elements defined in your form HTML above
+      
+      var form = document.getElementById("my-form");
+      var button = document.getElementById("submit");
+      var status = document.getElementById("my-form-status");
+
+      // Success and Error functions for after the form is submitted
+      
+      function success() {
+        form.reset();
+        button.style = "display: none ";
+        status.innerHTML = "Thanks!";
+      }
+
+      function error() {
+        status.innerHTML = "Oops! There was a problem.";
+      }
+
+      // handle the form submission event
+      form.addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        var data = new FormData(form);
+        ajax(form.method, form.action, data, success, error);
+      });
+    });
+    
+    function ajax(method, url, data, success, error) {
+      var xhr = new XMLHttpRequest();
+      xhr.open(method, url);
+      xhr.setRequestHeader("Accept", "application/json");
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState !== XMLHttpRequest.DONE) return;
+        if (xhr.status === 200) {
+          success(xhr.response, xhr.responseType);
+        } else {
+          error(xhr.status, xhr.response, xhr.responseType);
+        }
+      };
+      xhr.send(data);
+    }
+  </script>
+
+  
+</html>

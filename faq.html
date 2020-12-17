@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Halal Map</title>
+    <meta name = "viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
+    <div class="nav">
+      <div id="title">
+        <a href="./index.html">
+          <div class="title">     
+            <img class="img-container" src="images/symbol.svg"/>
+            <h3>NYC Halal Foods</h3>
+          </div>
+        </a>
+      </div>
+      <div class="drop-down">
+        <a href="./index.html">Home</a>
+        <hr>
+        <a href="./faq.html">FAQ</a>
+        <hr>
+        <a href="contact.html">Contact</a>
+        <hr>
+        <a href="quiz.html">Quiz</a>
+      </div>
+    </div>
+    
+      <div class="faq-container">
+        <div class="faq">
+          <div class="faq-question">
+            <h3>What qualifies as halal food?</h3>
+            <img class="faq-img" id="img1" src="images/arrow.svg" alt="drop down for answer" onclick="arrow('faq1', 'img1')"/>
+          </div>
+          <div id= "faq1" class="faq-drop-down">
+            <p>Halal food is food that is not prohibited to a person who practices Islam. 
+              Typically halal food is misconstrued as Meditarranian dishes. 
+              This is a very limited and inaccurate definition of halal that westerners 
+              have grown comfortable with. As one of the largest and diverse religions in the world, 
+              it is important that we stop pretending Islam belongs to the Middle East. 
+              Halal exists in vegetarian, all seafood, and across all cultures with some effort following the guidelines.
+            </p>
+            <ul>
+              <strong>All food is considered halal unless they contain:</strong>
+              <li>Alcoholic drinks and intoxicants</li>
+              <li>Non-Halal Animal Fat</li>
+              <li>Enzymes (Microbial Enzymes are permissible)</li>
+              <li>Gelatine from non-Halal source (fish gelatine is Halal)</li>
+              <li>Non-Halal Animal Shortening</li>
+              <li>Pork, Bacon / Ham and anything from pigs</li>
+              <li>Carnivorous animals, birds of prey and certain other animals</li>
+              <li>Foods contaminated with any of the above products</li>
+            </ul>
+          </div>
+          <div class="faq-question">
+            <h3>How do you know if a restaurant is halal?</h3>
+            <img class="faq-img" id="img2" src="images/arrow.svg" alt="drop down for answer" onclick="arrow('faq2', 'img2')"/>
+          </div>
+          <div id= "faq2" class="faq-drop-down">
+            <p>The list of restaurant is specifically curated so that only restaurant who serve all halal meats, vegan or seafood only, and no alcohol are put up. We do intense research to ensure a restaurant is living up to its promises.
+            </p>
+          </div>
+          <div class="faq-question">
+            <h3>I know a restaurant I'd like added.</h3>
+            <img class="faq-img" id="img3" src="images/arrow.svg" alt="drop down for answer" onclick="arrow('faq3', 'img3')"/>
+          </div>
+          <div id= "faq3" class="faq-drop-down">
+            <p>We'd love to include more restaurants! Contact us and we'll look into it!
+            </p>
+            <p>If you want to check if a restaurant qualifies as halal before contacting us, try taking this
+              <a href="quiz.html">quiz.</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    function arrow(faq, img){
+      var x = document.getElementById(faq);
+      var img = document.getElementById(img);
+      if(x && x.style){
+        x.style.display = x.style.display != 'block'? 'block' : '';
+        img.style.transform = img.style.transform != 'rotate(270deg)'? 'rotate(270deg)' : '';
+      }
+    }
+  </script>
+
+
+
+</html>
