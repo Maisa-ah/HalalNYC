@@ -1,3 +1,5 @@
+-- This is an updated version of MariaDB table as of June, 2023
+
 -- phpMyAdmin SQL Dump
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
@@ -18,30 +20,30 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `dev15db`
+-- Database: `halalNYC`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `halal`
+-- Table structure for table `HALAL_RESTAURANTS`
 --
 
-CREATE TABLE `halal` (
+CREATE TABLE `HALAL_RESTAURANTS` (
   `id` int(64) NOT NULL,
   `Name` varchar(128) DEFAULT NULL,
   `Description` varchar(512) DEFAULT NULL,
   `Nationality` varchar(128) DEFAULT NULL,
   `Borough` varchar(128) DEFAULT NULL,
-  `lng` varchar(128) DEFAULT NULL,
-  `lat` varchar(128) DEFAULT NULL
+  `Longitude` varchar(128) DEFAULT NULL,
+  `Latitude` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `halal`
+-- Dumping data for table `HALAL_RESTAURANTS`
 --
 
-INSERT INTO `halal` (`id`, `Name`, `Description`, `Nationality`, `Borough`, `lng`, `lat`) VALUES
+INSERT INTO `HALAL_RESTAURANTS` (`id`, `Name`, `Description`, `Nationality`, `Borough`, `Longitude`, `Latitude`) VALUES
 (1, 'Halal Indian Food & Falafel', '6742 5th Ave, Brooklyn, NY 11220', 'Indian South Asian', 'Brooklyn', '-74.020870', '40.634610'),
 (2, 'China Pagoda', '6918 5th Ave, Brooklyn, NY 11209', 'Chinese', 'Brooklyn', '-74.021439', '40.633129'),
 (3, 'Afghan Kebab House', '1345 2nd Ave #5224, New York, NY 10021', 'Afghan', 'NY', '-73.959300', '40.768090'),
@@ -72,9 +74,9 @@ INSERT INTO `halal` (`id`, `Name`, `Description`, `Nationality`, `Borough`, `lng
 --
 
 --
--- Indexes for table `halal`
+-- Indexes for table `HALAL_RESTAURANTS`
 --
-ALTER TABLE `halal`
+ALTER TABLE `HALAL_RESTAURANTS`
   ADD UNIQUE KEY `id` (`id`);
 COMMIT;
 
